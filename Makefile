@@ -7,3 +7,6 @@ build:
 
 container: build
 	docker build . -t docker.io/darthlukan/greet:$(VERSION)
+
+clean:
+	rm -rf ./build
