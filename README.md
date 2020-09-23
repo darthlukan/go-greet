@@ -23,8 +23,8 @@ $ ./build/greet "Hello World\!"
 
 Locally, as a container:
 ```
-$ docker pull docker.io/darthlukan/greet:v0.0.1
-$ docker run docker.io/darthlukan/greet:v0.0.1 /usr/bin/greet "Hello World\!"
+$ podman pull quay.io/btomlins/greet:v0.0.2
+$ podman run quay.io/btomlins/greet:v0.0.2 /usr/bin/greet "Hello World\!"
 >> "Hello World!"
   ... inf ...
 ```
