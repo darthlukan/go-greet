@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM registry.redhat.io/rhel8/go-toolset
 
 USER nobody
 
