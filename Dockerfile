@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel8/go-toolset
+FROM registry.access.redhat.com/ubi8/go-toolset
 
 USER nobody
 
