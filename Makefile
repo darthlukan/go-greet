@@ -1,5 +1,6 @@
 BINARY := greet
-VERSION := v0.0.4
+VERSION := v0.1.0
+GOARCH := $(shell go env GOARCH)
 
 .PHONY: all
 all: build container
@@ -7,14 +8,14 @@ all: build container
 .PHONY: build
 build:
 	mkdir -p build
-	GOOS=linux GOARCH=amd64 go build -o build/$(BINARY)
+	GOOS=linux go build -o build/$(BINARY)
 
 .PHONY: container
 container: build
-	podman build -f ./Dockerfile -t quay.io/btomlins/greet:$(VERSION)
-	podman tag quay.io/btomlins/greet:$(VERSION) quay.io/btomlins/greet:latest
-	podman push quay.io/btomlins/greet:$(VERSION)
-	podman push quay.io/btomlins/greet:latest
+	podman build -f ./Dockerfile -t quay.io/btomlins/greet:${GOARCH}-$(VERSION)
+	podman tag quay.io/btomlins/greet:${GOARCH}-$(VERSION) quay.io/btomlins/greet:${GOARCH}-latest
+	podman push quay.io/btomlins/greet:${GOARCH}-$(VERSION)
+	podman push quay.io/btomlins/greet:${GOARCH}-latest
 
 .PHONY: clean
 clean:
